@@ -18,6 +18,7 @@ import {
   Chip,
   TextField
 } from '@mui/material';
+import BookingCalendar from './Calendar/BookingCalendar';
 
 function TabPanel({ children, value, index }) {
   return (
@@ -58,79 +59,264 @@ const BookingMain = () => {
         Booking Management
       </Typography>
 
-      <Tabs value={tabValue} onChange={handleTabChange}>
-        <Tab label="Dashboard" />
-        <Tab label="Bookings" />
-        <Tab label="Services" />
-        <Tab label="Calendar" />
-        <Tab label="Customers" />
-        <Tab label="Reports" />
-      </Tabs>
-
-      <TabPanel value={tabValue} index={0}>
-        <Grid container spacing={3}>
+      <Grid container spacing={3} mb={3}>
           <Grid item xs={12} md={3}>
-            <Card>
-              <CardContent>
-                <Typography variant="h6">Today's Bookings</Typography>
-                <Typography variant="h4" color="primary">12</Typography>
+            <Card sx={{ 
+              backgroundColor: '#f8f9ff',
+              border: 'none',
+              boxShadow: 'none',
+              borderRadius: 2,
+              p: 1
+            }}>
+              <CardContent sx={{ display: 'flex', alignItems: 'center', gap: 2, p: '16px !important' }}>
+                <Box sx={{ 
+                  backgroundColor: '#e8eaff',
+                  borderRadius: '8px',
+                  p: 1,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  minWidth: '40px',
+                  height: '40px'
+                }}>
+                  <Box sx={{ fontSize: '20px', color: '#5a67d8' }}>📅</Box>
+                </Box>
+                <Box>
+                  <Typography variant="h4" sx={{ fontWeight: 'bold', color: '#1a202c', mb: 0.5 }}>
+                    12
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: '#718096', fontSize: '14px' }}>
+                    Today's Bookings
+                  </Typography>
+                </Box>
               </CardContent>
             </Card>
           </Grid>
           <Grid item xs={12} md={3}>
-            <Card>
-              <CardContent>
-                <Typography variant="h6">Total Revenue</Typography>
-                <Typography variant="h4" color="success.main">₹1,25,000</Typography>
+            <Card sx={{ 
+              backgroundColor: '#f0fff4',
+              border: 'none',
+              boxShadow: 'none',
+              borderRadius: 2,
+              p: 1
+            }}>
+              <CardContent sx={{ display: 'flex', alignItems: 'center', gap: 2, p: '16px !important' }}>
+                <Box sx={{ 
+                  backgroundColor: '#c6f6d5',
+                  borderRadius: '8px',
+                  p: 1,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  minWidth: '40px',
+                  height: '40px'
+                }}>
+                  <Box sx={{ fontSize: '20px', color: '#38a169' }}>💰</Box>
+                </Box>
+                <Box>
+                  <Typography variant="h4" sx={{ fontWeight: 'bold', color: '#1a202c', mb: 0.5 }}>
+                    ₹1,25,000
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: '#718096', fontSize: '14px' }}>
+                    Total Revenue
+                  </Typography>
+                </Box>
               </CardContent>
             </Card>
           </Grid>
           <Grid item xs={12} md={3}>
-            <Card>
-              <CardContent>
-                <Typography variant="h6">Available Services</Typography>
-                <Typography variant="h4" color="info.main">8</Typography>
+            <Card sx={{ 
+              backgroundColor: '#f0f9ff',
+              border: 'none',
+              boxShadow: 'none',
+              borderRadius: 2,
+              p: 1
+            }}>
+              <CardContent sx={{ display: 'flex', alignItems: 'center', gap: 2, p: '16px !important' }}>
+                <Box sx={{ 
+                  backgroundColor: '#bfdbfe',
+                  borderRadius: '8px',
+                  p: 1,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  minWidth: '40px',
+                  height: '40px'
+                }}>
+                  <Box sx={{ fontSize: '20px', color: '#2563eb' }}>🏢</Box>
+                </Box>
+                <Box>
+                  <Typography variant="h4" sx={{ fontWeight: 'bold', color: '#1a202c', mb: 0.5 }}>
+                    8
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: '#718096', fontSize: '14px' }}>
+                    Available Services
+                  </Typography>
+                </Box>
               </CardContent>
             </Card>
           </Grid>
           <Grid item xs={12} md={3}>
-            <Card>
-              <CardContent>
-                <Typography variant="h6">Active Customers</Typography>
-                <Typography variant="h4" color="warning.main">156</Typography>
+            <Card sx={{ 
+              backgroundColor: '#fffbf0',
+              border: 'none',
+              boxShadow: 'none',
+              borderRadius: 2,
+              p: 1
+            }}>
+              <CardContent sx={{ display: 'flex', alignItems: 'center', gap: 2, p: '16px !important' }}>
+                <Box sx={{ 
+                  backgroundColor: '#fed7aa',
+                  borderRadius: '8px',
+                  p: 1,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  minWidth: '40px',
+                  height: '40px'
+                }}>
+                  <Box sx={{ fontSize: '20px', color: '#d69e2e' }}>👥</Box>
+                </Box>
+                <Box>
+                  <Typography variant="h4" sx={{ fontWeight: 'bold', color: '#1a202c', mb: 0.5 }}>
+                    156
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: '#718096', fontSize: '14px' }}>
+                    Active Customers
+                  </Typography>
+                </Box>
               </CardContent>
             </Card>
           </Grid>
         </Grid>
-      </TabPanel>
 
-      <TabPanel value={tabValue} index={1}>
+      <Card>
+        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+          <Tabs value={tabValue} onChange={handleTabChange}>
+            <Tab label="Dashboard" />
+            <Tab label="Bookings" />
+            <Tab label="Services" />
+            <Tab label="Calendar" />
+            <Tab label="Customers" />
+            <Tab label="Reports" />
+          </Tabs>
+        </Box>
+        <CardContent>
+          {tabValue === 0 && (
+            <>
+              <Grid container spacing={3}>
+                <Grid item xs={12} md={8}>
+                  <Card>
+                    <CardContent>
+                      <Typography variant="h6" mb={2}>Recent Bookings</Typography>
+                      <TableContainer component={Paper} sx={{ boxShadow: 3 }}>
+                        <Table>
+                          <TableHead>
+                            <TableRow sx={{ backgroundColor: 'primary.main' }}>
+                              <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>Booking ID</TableCell>
+                              <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>Customer</TableCell>
+                              <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>Service</TableCell>
+                              <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>Date & Time</TableCell>
+                              <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>Status</TableCell>
+                            </TableRow>
+                          </TableHead>
+                          <TableBody>
+                            {bookings.map((booking) => (
+                              <TableRow key={booking.id} sx={{ '&:nth-of-type(odd)': { backgroundColor: 'action.hover' } }}>
+                                <TableCell sx={{ fontWeight: 'medium' }}>{booking.id}</TableCell>
+                                <TableCell>{booking.customer}</TableCell>
+                                <TableCell sx={{ color: 'text.secondary' }}>{booking.service}</TableCell>
+                                <TableCell sx={{ color: 'text.secondary' }}>{booking.date} {booking.time}</TableCell>
+                                <TableCell>
+                                  <Chip 
+                                    label={booking.status} 
+                                    color={
+                                      booking.status === 'Confirmed' ? 'success' : 
+                                      booking.status === 'Pending' ? 'warning' : 'error'
+                                    }
+                                    size="small"
+                                  />
+                                </TableCell>
+                              </TableRow>
+                            ))}
+                          </TableBody>
+                        </Table>
+                      </TableContainer>
+                    </CardContent>
+                  </Card>
+                </Grid>
+                <Grid item xs={12} md={4}>
+                  <Card sx={{ mb: 2 }}>
+                    <CardContent>
+                      <Typography variant="h6" mb={2}>Service Utilization</Typography>
+                      {services.map((service) => (
+                        <Box key={service.id} display="flex" justifyContent="space-between" alignItems="center" py={1}>
+                          <Box>
+                            <Typography variant="body2" sx={{ fontWeight: 'medium' }}>{service.name}</Typography>
+                            <Typography variant="caption" color="text.secondary">{service.capacity} capacity</Typography>
+                          </Box>
+                          <Chip 
+                            label={service.status} 
+                            color={service.status === 'Available' ? 'success' : 'warning'}
+                            size="small"
+                          />
+                        </Box>
+                      ))}
+                    </CardContent>
+                  </Card>
+                  <Card>
+                    <CardContent>
+                      <Typography variant="h6" mb={2}>Quick Stats</Typography>
+                      <Box display="flex" justifyContent="space-between" py={1}>
+                        <Typography variant="body2">Pending Bookings</Typography>
+                        <Typography variant="body2" sx={{ fontWeight: 'bold', color: 'warning.main' }}>3</Typography>
+                      </Box>
+                      <Box display="flex" justifyContent="space-between" py={1}>
+                        <Typography variant="body2">Confirmed Today</Typography>
+                        <Typography variant="body2" sx={{ fontWeight: 'bold', color: 'success.main' }}>8</Typography>
+                      </Box>
+                      <Box display="flex" justifyContent="space-between" py={1}>
+                        <Typography variant="body2">This Week Revenue</Typography>
+                        <Typography variant="body2" sx={{ fontWeight: 'bold', color: 'success.main' }}>₹45,600</Typography>
+                      </Box>
+                      <Box display="flex" justifyContent="space-between" py={1}>
+                        <Typography variant="body2">Occupancy Rate</Typography>
+                        <Typography variant="body2" sx={{ fontWeight: 'bold', color: 'info.main' }}>78%</Typography>
+                      </Box>
+                    </CardContent>
+                  </Card>
+                </Grid>
+              </Grid>
+            </>
+          )}
+          {tabValue === 1 && (
+            <>
         <Box sx={{ mb: 2 }}>
           <Button variant="contained">New Booking</Button>
         </Box>
-        <TableContainer component={Paper}>
+        <TableContainer component={Paper} sx={{ boxShadow: 3 }}>
           <Table>
             <TableHead>
-              <TableRow>
-                <TableCell>Booking ID</TableCell>
-                <TableCell>Customer</TableCell>
-                <TableCell>Service</TableCell>
-                <TableCell>Date</TableCell>
-                <TableCell>Time</TableCell>
-                <TableCell>Amount</TableCell>
-                <TableCell>Status</TableCell>
-                <TableCell>Actions</TableCell>
+              <TableRow sx={{ backgroundColor: 'primary.main' }}>
+                <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>Booking ID</TableCell>
+                <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>Customer</TableCell>
+                <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>Service</TableCell>
+                <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>Date</TableCell>
+                <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>Time</TableCell>
+                <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>Amount</TableCell>
+                <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>Status</TableCell>
+                <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>Actions</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {bookings.map((booking) => (
-                <TableRow key={booking.id}>
-                  <TableCell>{booking.id}</TableCell>
+                <TableRow key={booking.id} sx={{ '&:nth-of-type(odd)': { backgroundColor: 'action.hover' }, '&:hover': { backgroundColor: 'action.selected' } }}>
+                  <TableCell sx={{ fontWeight: 'medium' }}>{booking.id}</TableCell>
                   <TableCell>{booking.customer}</TableCell>
-                  <TableCell>{booking.service}</TableCell>
-                  <TableCell>{booking.date}</TableCell>
-                  <TableCell>{booking.time}</TableCell>
-                  <TableCell>{booking.amount}</TableCell>
+                  <TableCell sx={{ color: 'text.secondary' }}>{booking.service}</TableCell>
+                  <TableCell sx={{ color: 'text.secondary' }}>{booking.date}</TableCell>
+                  <TableCell sx={{ color: 'text.secondary' }}>{booking.time}</TableCell>
+                  <TableCell sx={{ fontWeight: 'bold', color: 'success.main' }}>{booking.amount}</TableCell>
                   <TableCell>
                     <Chip 
                       label={booking.status} 
@@ -150,29 +336,30 @@ const BookingMain = () => {
             </TableBody>
           </Table>
         </TableContainer>
-      </TabPanel>
-
-      <TabPanel value={tabValue} index={2}>
+              </>
+            )}
+            {tabValue === 2 && (
+              <>
         <Box sx={{ mb: 2 }}>
           <Button variant="contained">Add Service</Button>
         </Box>
-        <TableContainer component={Paper}>
+        <TableContainer component={Paper} sx={{ boxShadow: 3 }}>
           <Table>
             <TableHead>
-              <TableRow>
-                <TableCell>Service Name</TableCell>
-                <TableCell>Capacity</TableCell>
-                <TableCell>Rate</TableCell>
-                <TableCell>Status</TableCell>
-                <TableCell>Actions</TableCell>
+              <TableRow sx={{ backgroundColor: 'primary.main' }}>
+                <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>Service Name</TableCell>
+                <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>Capacity</TableCell>
+                <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>Rate</TableCell>
+                <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>Status</TableCell>
+                <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>Actions</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {services.map((service) => (
-                <TableRow key={service.id}>
-                  <TableCell>{service.name}</TableCell>
-                  <TableCell>{service.capacity} people</TableCell>
-                  <TableCell>{service.rate}</TableCell>
+                <TableRow key={service.id} sx={{ '&:nth-of-type(odd)': { backgroundColor: 'action.hover' }, '&:hover': { backgroundColor: 'action.selected' } }}>
+                  <TableCell sx={{ fontWeight: 'medium' }}>{service.name}</TableCell>
+                  <TableCell sx={{ color: 'text.secondary' }}>{service.capacity} people</TableCell>
+                  <TableCell sx={{ fontWeight: 'bold', color: 'success.main' }}>{service.rate}</TableCell>
                   <TableCell>
                     <Chip 
                       label={service.status} 
@@ -189,40 +376,32 @@ const BookingMain = () => {
             </TableBody>
           </Table>
         </TableContainer>
-      </TabPanel>
-
-      <TabPanel value={tabValue} index={3}>
-        <Typography variant="h6">Booking Calendar</Typography>
-        <Box sx={{ mt: 2, p: 2, border: '1px solid #ddd', borderRadius: 1 }}>
-          <Typography>Calendar view will be implemented here</Typography>
-          <Typography variant="body2" color="text.secondary">
-            Integration with calendar library for visual booking management
-          </Typography>
-        </Box>
-      </TabPanel>
-
-      <TabPanel value={tabValue} index={4}>
+              </>
+            )}
+            {tabValue === 3 && <BookingCalendar />}
+            {tabValue === 4 && (
+              <>
         <Box sx={{ mb: 2 }}>
           <Button variant="contained">Add Customer</Button>
         </Box>
-        <TableContainer component={Paper}>
+        <TableContainer component={Paper} sx={{ boxShadow: 3 }}>
           <Table>
             <TableHead>
-              <TableRow>
-                <TableCell>Name</TableCell>
-                <TableCell>Email</TableCell>
-                <TableCell>Phone</TableCell>
-                <TableCell>Total Bookings</TableCell>
-                <TableCell>Actions</TableCell>
+              <TableRow sx={{ backgroundColor: 'primary.main' }}>
+                <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>Name</TableCell>
+                <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>Email</TableCell>
+                <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>Phone</TableCell>
+                <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>Total Bookings</TableCell>
+                <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>Actions</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {customers.map((customer) => (
-                <TableRow key={customer.id}>
-                  <TableCell>{customer.name}</TableCell>
-                  <TableCell>{customer.email}</TableCell>
-                  <TableCell>{customer.phone}</TableCell>
-                  <TableCell>{customer.totalBookings}</TableCell>
+                <TableRow key={customer.id} sx={{ '&:nth-of-type(odd)': { backgroundColor: 'action.hover' }, '&:hover': { backgroundColor: 'action.selected' } }}>
+                  <TableCell sx={{ fontWeight: 'medium' }}>{customer.name}</TableCell>
+                  <TableCell sx={{ color: 'text.secondary' }}>{customer.email}</TableCell>
+                  <TableCell sx={{ color: 'text.secondary' }}>{customer.phone}</TableCell>
+                  <TableCell sx={{ fontWeight: 'bold', color: 'primary.main' }}>{customer.totalBookings}</TableCell>
                   <TableCell>
                     <Button size="small">View</Button>
                     <Button size="small">Edit</Button>
@@ -232,9 +411,10 @@ const BookingMain = () => {
             </TableBody>
           </Table>
         </TableContainer>
-      </TabPanel>
-
-      <TabPanel value={tabValue} index={5}>
+              </>
+            )}
+            {tabValue === 5 && (
+              <>
         <Typography variant="h6">Booking Reports</Typography>
         <Grid container spacing={2} sx={{ mt: 2 }}>
           <Grid item xs={12} md={6}>
@@ -257,7 +437,10 @@ const BookingMain = () => {
             <Button variant="contained">Generate Report</Button>
           </Grid>
         </Grid>
-      </TabPanel>
+              </>
+            )}
+        </CardContent>
+      </Card>
     </Box>
   );
 };
